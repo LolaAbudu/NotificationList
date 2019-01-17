@@ -35,26 +35,26 @@ public class MainActivity extends AppCompatActivity {
         cardView =findViewById(R.id.textImageCardView);
 
         List<NotificationThings> notificationThings = new ArrayList<>();
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_airplane), "This is an airplane"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_bike), "This is a bike"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_battery_alert), "This is a dying battery"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_battery_full), "This is a full battery"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_upward_arrow), "This is an upward arrow"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_downward_arrow), "This is a downward arrow"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_forward_arrow), "This is a forward arrow"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_backward_arrow), "This is a backward arrow"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_full_moon), "This is a full moon"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_half_moon), "This is a half moon"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_key), "This is a key"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_music), "This is a music sign"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_phone_call), "This is a phone call"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_power_plug), "This is a power plug"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_shopping_cart), "This is a shopping cart"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_text_message), "This is a text message"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_voicemail), "This is a voicemail"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_wifi), "This is a wifi"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_zoom_in), "This is a zoom-in"));
-        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_zoom_out), "This is a zoom-out"));
+        notificationThings.add(new NotificationThings( R.drawable.ic_action_airplane, "This is an airplane"));
+        notificationThings.add(new NotificationThings(R.drawable.ic_action_bike, "This is a bike"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_battery_alert), "This is a dying battery"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_battery_full), "This is a full battery"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_upward_arrow), "This is an upward arrow"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_downward_arrow), "This is a downward arrow"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_forward_arrow), "This is a forward arrow"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_backward_arrow), "This is a backward arrow"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_full_moon), "This is a full moon"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_half_moon), "This is a half moon"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_key), "This is a key"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_music), "This is a music sign"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_phone_call), "This is a phone call"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_power_plug), "This is a power plug"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_shopping_cart), "This is a shopping cart"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_text_message), "This is a text message"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_voicemail), "This is a voicemail"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_wifi), "This is a wifi"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_zoom_in), "This is a zoom-in"));
+//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_zoom_out), "This is a zoom-out"));
 
         NotificationThingsAdapter notificationThingsAdapter = new NotificationThingsAdapter(notificationThings);
 

@@ -34,12 +34,14 @@ public class SecondActivity extends AppCompatActivity {
     private static final String ACTION_UPDATE_NOTIFICATION =
             "com.example.android.notificationlist.ACTION_UPDATE_NOTIFICATION";
 
-    NotificationThings notificationThings;
+    //NotificationThings notificationThings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        NotificationThings notificationThings = getIntent().getParcelableExtra("things");
 
         textView = findViewById(R.id.description_textView_secondActivity);
         imageView = findViewById(R.id.photo_imageView_secondActivity);
@@ -47,8 +49,12 @@ public class SecondActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREFS_KEY, MODE_PRIVATE);
 
 
-        Intent intent = getIntent();
-        textView.setText(intent.getStringExtra("things"));
+        //Intent intent = getIntent();
+        textView.setText(notificationThings.getDescription());
+        Log.d("in ben", "yes" + notificationThings.getDescription());
+
+        imageView.setImageDrawable(getResources().getDrawable(notificationThings.getItem()));
+        Log.d("in there", "yes" + notificationThings.getItem());
 
         //serializable and parseable
 

@@ -7,56 +7,58 @@ import android.os.Parcelable;
 import android.support.annotation.DrawableRes;
 
 
-public class NotificationThings  {
+public class NotificationThings implements Parcelable {
     //@DrawableRes int drawable  another way to call your drawable
-    Drawable item;
-    String description;
+    private int item;
+    private String description;
 
-    public NotificationThings(Drawable item, String description){
+    public NotificationThings(int item, String description){
         this.item=item;
         this.description=description;
     }
 
-//    protected NotificationThings(Parcel in) {
-//        description = in.readString();
-//    }
+    public int getItem() {
+        return item;
+    }
 
-    public void setItem(Drawable item) {
+    public void setItem(int item) {
         this.item = item;
+    }
+
+    private NotificationThings(Parcel in) {
+        this.description=in.readString();
+        this.item=in.readInt();
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public Drawable getItem() {
-        return item;
-    }
-
     public String getDescription() {
         return description;
     }
 
-//    @Override
-//    public int describeContents() {
-//        return 0;
-//    }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
-//    @Override
-//    public void writeToParcel(Parcel dest, int flags) {
-//        dest.writeString(description);
-//
-//    }
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(description);
+        dest.writeInt(item);
 
-//    public static final Creator<NotificationThings> CREATOR = new Creator<NotificationThings>() {
-//        @Override
-//        public NotificationThings createFromParcel(Parcel in) {
-//            return new NotificationThings(in);
-//        }
-//
-//        @Override
-//        public NotificationThings[] newArray(int size) {
-//            return new NotificationThings[size];
-//        }
-//    };
+    }
+
+    public static final Creator<NotificationThings> CREATOR = new Creator<NotificationThings>() {
+        @Override
+        public NotificationThings createFromParcel(Parcel in) {
+            return new NotificationThings(in);
+        }
+
+        @Override
+        public NotificationThings[] newArray(int size) {
+            return new NotificationThings[size];
+        }
+    };
 }

@@ -28,6 +28,7 @@ public class NotificationThingsViewHolder extends RecyclerView.ViewHolder {
     private ImageView item;
     private SharedPreferences sharedPreferences;
     private Intent intent;
+    private NotificationThings allThings;
 
     public NotificationThingsViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -36,27 +37,28 @@ public class NotificationThingsViewHolder extends RecyclerView.ViewHolder {
         sharedPreferences = itemView.getContext().getApplicationContext().getSharedPreferences(TAG, Context.MODE_PRIVATE);
     }
 
-    public void onBind(final NotificationThings notificationThings){
-        description.setText(notificationThings.getDescription());
-        item.setImageDrawable(notificationThings.getItem());
+    public void onBind( NotificationThings allNotification){
+        this.allThings=allNotification;
+        item.setImageResource(allNotification.getItem());
+        description.setText(allNotification.getDescription());
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //shared prefernce is used to save the one instance of the notification
                 //put the shared prefernce that says if get shared preference.contains key,  then do the Toast, else put the intent
                 intent = new Intent(v.getContext(), SecondActivity.class);
-                intent.putExtra("things", notificationThings.getDescription());
+                intent.putExtra("things", allThings);
+                v.getContext().startActivity(intent);
 
                 //intent.putExtra("things2", item.getId());
 
 
-                Bundle imageBundle = new Bundle();
-                imageBundle.putInt("image", item.getId());
-                intent.putExtras(imageBundle);
+//                Bundle imageBundle = new Bundle();
+//                imageBundle.putInt("image", item.getId());
+//                intent.putExtras(imageBundle);
 
 
 
-                v.getContext().startActivity(intent);
 
 
             }
