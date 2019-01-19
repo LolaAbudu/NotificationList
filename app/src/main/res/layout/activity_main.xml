@@ -8,14 +8,13 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/notification_list_recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/activity_main_recyclerView_layout_height_and_weight"
+        android:layout_height="@dimen/activity_main_recyclerView_layout_height_and_weight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
     </android.support.v7.widget.RecyclerView>
-
 
 </android.support.constraint.ConstraintLayout>

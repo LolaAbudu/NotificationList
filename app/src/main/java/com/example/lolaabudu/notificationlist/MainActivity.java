@@ -1,13 +1,10 @@
 package com.example.lolaabudu.notificationlist;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,10 +16,10 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView notificationThingsView;
-    ImageView imageView;
-    TextView textView;
-    CardView cardView;
+    private RecyclerView notificationThingsView;
+    private ImageView imageView;
+    private TextView textView;
+    private CardView cardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,29 +31,30 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.description_textView);
         cardView =findViewById(R.id.textImageCardView);
 
-        List<NotificationThings> notificationThings = new ArrayList<>();
-        notificationThings.add(new NotificationThings( R.drawable.ic_action_airplane, "This is an airplane"));
-        notificationThings.add(new NotificationThings(R.drawable.ic_action_bike, "This is a bike"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_battery_alert), "This is a dying battery"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_battery_full), "This is a full battery"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_upward_arrow), "This is an upward arrow"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_downward_arrow), "This is a downward arrow"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_forward_arrow), "This is a forward arrow"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_backward_arrow), "This is a backward arrow"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_full_moon), "This is a full moon"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_half_moon), "This is a half moon"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_key), "This is a key"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_music), "This is a music sign"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_phone_call), "This is a phone call"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_power_plug), "This is a power plug"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_shopping_cart), "This is a shopping cart"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_text_message), "This is a text message"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_voicemail), "This is a voicemail"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_wifi), "This is a wifi"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_zoom_in), "This is a zoom-in"));
-//        notificationThings.add(new NotificationThings(getResources().getDrawable(R.drawable.ic_action_zoom_out), "This is a zoom-out"));
+        List<NotificationThings> notificationItems = new ArrayList<>();
 
-        NotificationThingsAdapter notificationThingsAdapter = new NotificationThingsAdapter(notificationThings);
+        notificationItems.add(new NotificationThings(R.drawable.ic_airplanemode, "This is an airplane"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_bike, "This is a bike"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_battery_alert, "This is a dying battery"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_battery_full, "This is a full battery"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_arrow_upward, "This is an upward arrow"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_arrow_downward, "This is a downward arrow"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_arrow_forward, "This is a forward arrow"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_arrow_back, "This is a backward arrow"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_full_moon, "This is a full moon"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_half_moon, "This is a half moon"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_key, "This is a key"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_music_note, "This is a music sign"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_phonecall, "This is a phone call"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_power_plug, "This is a power plug"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_shopping_cart, "This is a shopping cart"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_text_message, "This is a text message"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_voicemail, "This is a voicemail"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_wifi, "This is a wifi"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_zoom_in, "This is a zoom-in"));
+        notificationItems.add(new NotificationThings(R.drawable.ic_zoom_out, "This is a zoom-out"));
+
+        NotificationThingsAdapter notificationThingsAdapter = new NotificationThingsAdapter(notificationItems);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         notificationThingsView.setAdapter(notificationThingsAdapter);

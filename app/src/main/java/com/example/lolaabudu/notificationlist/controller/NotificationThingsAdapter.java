@@ -16,8 +16,8 @@ public class NotificationThingsAdapter extends RecyclerView.Adapter<Notification
 
     private List<NotificationThings> notificationThingsList;
 
-    public NotificationThingsAdapter(List<NotificationThings> notificationThingsList){
-        this.notificationThingsList=notificationThingsList;
+    public NotificationThingsAdapter(List<NotificationThings> notificationThingsList) {
+        this.notificationThingsList = notificationThingsList;
     }
 
     @NonNull

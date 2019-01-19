@@ -3,11 +3,9 @@ package com.example.lolaabudu.notificationlist;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -34,8 +32,6 @@ public class SecondActivity extends AppCompatActivity {
     private static final String ACTION_UPDATE_NOTIFICATION =
             "com.example.android.notificationlist.ACTION_UPDATE_NOTIFICATION";
 
-    //NotificationThings notificationThings;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,61 +44,22 @@ public class SecondActivity extends AppCompatActivity {
         notificationButton = findViewById(R.id.notification_button_secondActivity);
         sharedPreferences = getSharedPreferences(SHARED_PREFS_KEY, MODE_PRIVATE);
 
-
-        //Intent intent = getIntent();
         textView.setText(notificationThings.getDescription());
-        Log.d("in ben", "yes" + notificationThings.getDescription());
+        Log.d("inView", "text: " + notificationThings.getDescription());
 
         imageView.setImageDrawable(getResources().getDrawable(notificationThings.getItem()));
-        Log.d("in there", "yes" + notificationThings.getItem());
-
-        //serializable and parseable
-
-//        Bundle imageBundle = getIntent().getExtras();
-//        int img;
-//        img = imageBundle.getInt("image");
-//        imageView.setImageResource(img);
-
-        //Picasso.get().load(intent.getStringExtra("image")).into(imageView);
-
-//        boolean isNew = false;
-//        Intent i = getIntent();
-//        if(i == null){
-//            isNew= i.getBooleanExtra("isNew", false);
-//            Log.d("tag", "isNew" + isNew);
-//        }
-//        if(getIntent() != null && getIntent().getExtras() != null){
-//
-//        }
-
-//        Bundle imageBundle = getIntent().getExtras();
-//        int pic = imageBundle.getInt("things2");
-//        Drawable img = imageBundle.get
-//        imageView.setImageResource(pic);
-
-
-//        Bundle imageBundle = this.getIntent().getExtras();
-//        int image = imageBundle.getInt("images");
-//        imageView.setImageResource(image);
-
-//         Bundle bundle=this.getIntent().getExtras();
-//            int pic=bundle.getInt("image");
-//            imageView.setImageResource(pic);
-
-//        Bundle bundle=this.getIntent().getExtras();
-//        imageView.setImageResource(bundle);
+        Log.d("inView", "image: " + notificationThings.getItem());
 
         notificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (sharedPreferences.contains(textView.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "You have already sent this notification", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "This notification has already been sent and will not be sent again", Toast.LENGTH_SHORT).show();
                 } else {
                     sendNotification();
                 }
             }
         });
-
         createNotificationChannel();
     }
 
@@ -114,8 +71,7 @@ public class SecondActivity extends AppCompatActivity {
         notifyBuilder.addAction(R.drawable.ic_action_airplane, "Update Notification", updatePendingIntent);
         Log.d("Notify", "It works");
 
-        //this saves into the shared preference after the onClick of the button the unique textView message as the key and true as its value
-        //using shared preference to save the one instance of the notification
+        //using shared preference to save the one instance of sending the notification, then send a Toast if the notification has already been sent
         sharedPreferences.edit().putBoolean(textView.getText().toString(), true).apply();
     }
 
@@ -125,12 +81,12 @@ public class SecondActivity extends AppCompatActivity {
                 NOTIFICATION_ID, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID)
-                .setContentTitle("You've been notified!")
-                .setContentText("This is your notification text.")
-                .setSmallIcon(R.drawable.ic_action_airplane)    //the icon that shows in the notification drawer (THIS IS THE ONLY THING YOU NEED FOR A NOTIFICATION, EVERYTHING ELSE IS OPTIONAL AND PREFERENCE)
-                .setContentIntent(notificationPendingIntent)   //aka tap action, aka what happens when the user taps the notification tab; passes in the pending Intent
-                .setAutoCancel(true)   //the notification cancels itself after an action is performed such as the user tapping it
-                .setPriority(NotificationCompat.PRIORITY_HIGH)   //for API 26 and up
+                .setContentTitle("Notification Things notification.")
+                .setContentText("Click Me!")
+                .setSmallIcon(R.drawable.ic_action_airplane)
+                .setContentIntent(notificationPendingIntent)
+                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setDefaults(NotificationCompat.DEFAULT_ALL);
         return notifyBuilder;
     }
